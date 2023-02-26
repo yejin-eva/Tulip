@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>HTML 입문 튜토리얼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A corporate Bootstrap theme by Medium Rare">
+    <link href="assets/css/loaders/loader-typing.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+	  
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script>
+		let loginStatus = localStorage.getItem("loginStatus");
+		let userId = localStorage.getItem("userID");
+		let username = localStorage.getItem("username");
+		
+		$(document).ready(function() {
+			$('#logoutdiv').css("visibility", "hidden");
+			console.log(loginStatus)
+			console.log(userId)
+			console.log(username)
+			if (loginStatus === 'y') {
+				$('#logindiv').css("visibility", "hidden");
+				$('#logoutdiv').css("visibility", "visible");
+			}
+			else {
+				$('#logindiv').css("visibility", "visible");
+				$('#logoutdiv').css("visibility", "hidden");
+			}
+		})
+		
+		function logout() {
+			localStorage.setItem("loginStatus", "n");
+			localStorage.setItem("userID", "");
+			localStorage.setItem("username", "");
+			location.reload()
+		}
+		
+		function mypage() {
+			if (loginStatus === 'y') {
+				location.href="/mypage"
+			}
+			else {
+				location.href="/signin"
+			}
+		}
+		
+		function forum(){
+			if (loginStatus === 'y') {
+				location.href="#"
+			}
+			else {
+				location.href="/signin"
+			}
+		}
+	
+	</script>
+	  
+  </head>
+
+  <body>
+    <div class="loader">
+      <div class="loading-animation"></div>
+    </div>
+
+    <div class="navbar-container ">
+      <nav class="navbar navbar-expand-lg navbar-dark" data-overlay data-sticky="top">
+        <div class="container">			
+	      <a class="navbar-brand fade-page" href="/">
+            <img src="/assets/img/Tulip.png" alt="Tulip" style ="width:65px">
+		  </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+            <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <div class="py-2 py-lg-0">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a href="/curriculum" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">Curriculum</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a onclick="mypage()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">My Page</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a onclick="forum()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">Forum</a>
+                  <div class="dropdown-menu row">
+                    <div class="col-auto" data-dropdown-content>
+                      <div class="dropdown-grid-menu"><a href="/forumCertify" class="dropdown-item fade-page">학습인증</a><a href="/forumQnA" class="dropdown-item fade-page">질문 & 답변<span class="badge badge-primary ml-2">New</span></a><a href="/forumStudy" class="dropdown-item fade-page">스터디</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div><div id="logindiv"><a href="/signin" class="btn btn-white ml-lg-3">Log In</a></div><div id="logoutdiv"><a class="btn btn-white ml-lg-3" onclick="logout()">Log Out</a></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+     <section class="has-divider text-light jarallax bg-dark" data-jarallax data-speed="0.5" data-overlay>
+      <div class="container pb-0">
+		  	 <a href="/forumWriting" class="btn btn btn-white float-right" data-smooth-scroll style="margin-top:110px">작성하기</a>
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 col-md-8">
+            <h1 class="display-4">스터디</h1>
+            <p class="lead mb-0">Find people to study with and do a study.</p>
+			  <ul class="nav nav-tabs mt-5">
+  				<li class="nav-item">
+    			  <a class="nav-link" aria-current="page" href="/forumCertify">학습인증</a>
+  				</li>
+  				<li class="nav-item">
+   				  <a class="nav-link" href="/forumQnA">질문 & 답변</a>
+  				</li>
+  				<li class="nav-item">
+    			  <a class="nav-link active" href="/forumStudy">스터디</a>
+ 				</li>
+				</ul>
+			</div>
+        </div>
+      </div>
+    </section>
+	  
+	  
+	  
+	  
+    <section>
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 14일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-4
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>애니메이션 스터디원 [1명] 추가 모집합니다</h5>
+                </a>
+                <p class="flex-grow-1">
+                  5.14 과제 현재 저희는 canvas를 활용한 애니메이션을 진행해보려합니다 ## Github ## 이전 구현 예시 [플립시계](원본)https://codepen.io/no...
+                </p>
+				<div>
+					<span class="badge rounded-pill bg-secondary text-white">#애니메이션</span>
+					<span class="badge rounded-pill bg-secondary text-white">#html</span>
+					<span class="badge rounded-pill bg-secondary text-white">#css</span>
+					<span class="badge rounded-pill bg-secondary text-white">#javascript</span>
+					<span class="badge rounded-pill bg-secondary text-white">#canvas</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/female-3.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">백세림</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 14일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-4
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>개발자 북 클럽 멤버를 모집합니다.</h5>
+                </a>
+                <p class="flex-grow-1">
+                  안녕하세요. 개발자를 위한 북 클럽 2기가 오픈되었습니다. 🎉 좋을 코드를 짜고 싶거나 개발의 기초를 쌓고 싶은 사람들을 위한 책 스터디예요
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#개발자</span>
+					<span class="badge rounded-pill bg-secondary text-white">#스터디</span>
+					<span class="badge rounded-pill bg-secondary text-white">#책스터디</span>
+					<span class="badge rounded-pill bg-secondary text-white">#코드</span>
+					<span class="badge rounded-pill bg-secondary text-white">#북클럽</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/female-3.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">백세림</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 14일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-4
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>평일 낮 12시~18시 디스코드 화면 공유</h5>
+                </a>
+                <p class="flex-grow-1">
+                  안녕하세요. 저는 자바 쪽 개발로 1년 근무 했다가 퇴사하고 백엔드 개발 쪽으로 이직을 준비하고 있습니다. 8월 이직 성공 목표로 하고 있습니다. 
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#모각코</span>
+					<span class="badge rounded-pill bg-secondary text-white">#온라인모각코</span>
+					<span class="badge rounded-pill bg-secondary text-white">#화면공유</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-4.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">오제윤</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 14일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-4
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>까치산역 카페 각코딩 ( 매주 토요일 9 ~ 12 )</h5>
+                </a>
+                <p class="flex-grow-1">
+                  매주 토요일 까치산역 카페에 모여서 이직 관련 / 자기 개발 관련 이야기 나누며 성장하는 커뮤니티 입니다.
+
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#스프링</span>
+					<span class="badge rounded-pill bg-secondary text-white">#웹</span>
+					<span class="badge rounded-pill bg-secondary text-white">#각코딩</span>
+					<span class="badge rounded-pill bg-secondary text-white">#화곡</span>
+					<span class="badge rounded-pill bg-secondary text-white">#목동</span>
+					<span class="badge rounded-pill bg-secondary text-white">#까치산역</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-1.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">김준혁</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="500">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 13일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-3
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>[프로젝트 팀원 모집] 함께 서비스를 런칭할 디자인/작가 팀원을 구합니다</h5>
+                </a>
+                <p class="flex-grow-1">
+                  지원 : 간단한 소개와 경력이 담긴 이력서/포트폴리오를 info@chartinmusic.com 에 보내주세요. 글로벌 뮤지션 매칭 플랫폼 ...
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#디자이너</span>
+					<span class="badge rounded-pill bg-secondary text-white">#작가</span>
+					<span class="badge rounded-pill bg-secondary text-white">#플랫폼프로젝트</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-1.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">김준혁</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="600">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 13일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-3
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>타입스크립트 스터디원 모집합니다</h5>
+                </a>
+                <p class="flex-grow-1">
+                  안녕하세요. 타입스크립트 스터디원을 모집합니다. 인원수는 최대 8명정도 생각 중이며, 장소는 선릉 혹은 강남 등을 생각 중입니다. 
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#타입스크립트</span>
+					<span class="badge rounded-pill bg-secondary text-white">#스터디</span>
+					<span class="badge rounded-pill bg-secondary text-white">#TS</span>
+					<span class="badge rounded-pill bg-secondary text-white">#프론트엔드</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/female-4.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">양서연</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="700">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집중</a>
+                    </div>
+                    <span class="text-muted">5월 13일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-3
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>간단한게임 db연동해서 스터디하면서 만들어주실분</h5>
+                </a>
+                <p class="flex-grow-1">
+                  스터디 모집글을 아래 양식을 참고해 작성해주세요. 꼼꼼히 작성하면 멋진 스터디 팀원을 만나실 수 있을거예요. 
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#게임개발</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-2.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">황찬영</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="800">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집 완료</a>
+                    </div>
+                    <span class="text-muted">5월 12일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-0
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>주말 JS, TS 진영 모각코</h5>
+                </a>
+                <p class="flex-grow-1">
+                 안녕하세요 1년차 주니어 개발자입니다. 저는 주로 Typescript와 React로 개발을 해왔고 최근에는 백엔드 공부를 하고 있습니다.
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#자바스크립트</span>
+					<span class="badge rounded-pill bg-secondary text-white">#타dlq스크립트</span>
+					<span class="badge rounded-pill bg-secondary text-white">#JS</span>
+					<span class="badge rounded-pill bg-secondary text-white">#TS</span>
+					<span class="badge rounded-pill bg-secondary text-white">#Javascript</span>
+					<span class="badge rounded-pill bg-secondary text-white">#Typescript</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-5.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">이원섭</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="900">
+           <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">모집완료</a>
+                    </div>
+                    <span class="text-muted">5월 12일</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" data-inject-svg />D-0
+                  </span>
+                </div>
+                <a href="#">
+                  <h5>분당, 강남) 프엔으로 전향을 목표로 하는 퍼블들의 스터디</h5>
+                </a>
+                <p class="flex-grow-1">
+                  [프론트엔드를 꿈꾸는 퍼블리셔 구함] 스터디 주제 : 퍼블리셔에서 프론트엔드 전향을 위한 모임
+                </p>
+				  <div>
+					<span class="badge rounded-pill bg-secondary text-white">#프론트엔드</span>
+					<span class="badge rounded-pill bg-secondary text-white">#퍼블리셔</span>
+					<span class="badge rounded-pill bg-secondary text-white">#UI개발</span>
+					<span class="badge rounded-pill bg-secondary text-white">#웹개발</span>
+				  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-5.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">이원섭</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto">
+            <a href="#" class="btn btn-outline-white">Previous</a>
+          </div>
+          <div class="col-auto">
+            <nav>
+              <ul class="pagination mb-0">
+                <li class="page-item active"><a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="btn btn-outline-white">Next</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pb-4 bg-primary-3 text-light" id="footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col">
+            <div class="card card-body border-0 o-hidden mb-0 bg-primary text-light">
+              <div class="position-relative d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="h3 text-center mb-md-0">HTML 심화 단계를 배우고 싶은 분은 클릭하세요!</div>
+                <a href="#" class="btn btn-lg btn-white">
+      Next Step
+    </a>
+              </div>
+              <div class="decoration layer-0">
+                <img class="bg-primary-2" src="assets/img/decorations/deco-blob-1.svg" alt="deco-blob-1 decoration" data-inject-svg />
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-6 col-lg-3 col-xl-2">
+            <h5>Navigate</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a href="/signin" class="nav-link">Log In</a>
+              </li>
+              <li class="nav-item">
+                <a href="/Curriculum" class="nav-link">Curriculum</a>
+              </li>
+              <li class="nav-item">
+                <a href="/mypage" class="nav-link">My Page</a>
+              </li>
+              <li class="nav-item">
+                <a href="/forumQnA" class="nav-link">Forum</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg">
+            <h5>Contact</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/map/marker-1.svg" alt="marker-1 icon" data-inject-svg />
+                <div class="ml-3">
+                  <span>경상북도 포항시 한동로 558 한동대학교
+                    <br />에벤에셀관</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/communication/call-1.svg" alt="call-1 icon" data-inject-svg />
+                <div class="ml-3">
+                  <span>+82 6393 1009</span>
+                  <span class="d-block text-muted text-small">Mon - Fri 9am - 5pm</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/communication/mail.svg" alt="mail icon" data-inject-svg />
+                <div class="ml-3">
+                  <a href="https://mail.google.com/mail/">21700043@handong.ac.kr</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-xl-4 mt-3 mt-lg-0">
+            <h5>References</h5>
+            <p>해당 페이지 제작에 도움을 주신 <br> 한동대학교 이원섭 교수님의 교육자료입니다.</p>
+            <form action="/forms/mailchimp.php" data-form-email novalidate>
+              <div class="form-row">
+                <div class="col-12">
+                </div>
+                <div class="col-12">
+                  <div class="d-none alert alert-success" role="alert" data-success-message>
+                    Thanks, a member of our team will be in touch shortly.
+                  </div>
+                  <div class="d-none alert alert-danger" role="alert" data-error-message>
+                    Please fill all fields correctly.
+                  </div>
+                  <div data-recaptcha data-sitekey="INSERT_YOUR_RECAPTCHA_V2_SITEKEY_HERE" data-size="invisible" data-badge="bottomleft">
+                  </div>
+                  <button type="submit" class="btn">
+                    <span><a href="https://handonghci.notion.site/SIT32006-132ac3dc2ed24fbbbfe98a11813437bf" class="btn btn-lg btn-white">Next Step</a></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+            
+
+          </div>
+        </div>
+        <div class="row justify-content-center mb-2">
+          <div class="col-auto">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/instagram.svg" alt="instagram social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/youtube.svg" alt="youtube social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/medium.svg" alt="medium social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col col-md-auto text-center">
+            <small class="text-muted">&copy;2022 This page is protected by reCAPTCHA and is subject to the Google <a href="https://www.google.com/policies/privacy/">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service.</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
+      <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
+    </a>
+    <!-- Required vendor scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+
+    <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
+    <script type="text/javascript" src="assets/js/aos.js"></script>
+    <!-- Clipboard (copies content from browser into OS clipboard) -->
+    <script type="text/javascript" src="assets/js/clipboard.min.js"></script>
+    <!-- Fancybox (handles image and video lightbox and galleries) -->
+    <script type="text/javascript" src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- Flatpickr (calendar/date/time picker UI) -->
+    <script type="text/javascript" src="assets/js/flatpickr.min.js"></script>
+    <!-- Flickity (handles touch enabled carousels and sliders) -->
+    <script type="text/javascript" src="assets/js/flickity.pkgd.min.js"></script>
+    <!-- Ion rangeSlider (flexible and pretty range slider elements) -->
+    <script type="text/javascript" src="assets/js/ion.rangeSlider.min.js"></script>
+    <!-- Isotope (masonry layouts and filtering) -->
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- jarallax (parallax effect and video backgrounds) -->
+    <script type="text/javascript" src="assets/js/jarallax.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-video.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-element.min.js"></script>
+    <!-- jQuery Countdown (displays countdown text to a specified date) -->
+    <script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+    <!-- jQuery smartWizard facilitates steppable wizard content -->
+    <script type="text/javascript" src="assets/js/jquery.smartWizard.min.js"></script>
+    <!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
+    <script type="text/javascript" src="assets/js/plyr.polyfilled.min.js"></script>
+    <!-- Prism (displays formatted code boxes) -->
+    <script type="text/javascript" src="assets/js/prism.js"></script>
+    <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
+    <script type="text/javascript" src="assets/js/scrollMonitor.js"></script>
+    <!-- Smooth scroll (animation to links in-page)-->
+    <script type="text/javascript" src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
+    <script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+    <!-- TwitterFetcher (displays a feed of tweets from a specified account)-->
+    <script type="text/javascript" src="assets/js/twitterFetcher_min.js"></script>
+    <!-- Typed text (animated typing effect)-->
+    <script type="text/javascript" src="assets/js/typed.min.js"></script>
+    <!-- Required theme scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/theme.js"></script>
+    <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    </script>
+
+  </body>
+
+</html>

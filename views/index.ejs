@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML 입문 튜토리얼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A corporate Bootstrap theme by Medium Rare">
+    <link href="assets/css/loaders/loader-typing.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script>
+		let loginStatus = localStorage.getItem("loginStatus");
+		let userId = localStorage.getItem("userID");
+		let username = localStorage.getItem("username");
+		
+		$(document).ready(function() {
+			$('#logoutdiv').css("visibility", "hidden");
+			console.log(loginStatus)
+			console.log(userId)
+			console.log(username)
+			if (loginStatus === 'y') {
+				$('#logindiv').css("visibility", "hidden");
+				$('#logoutdiv').css("visibility", "visible");
+			}
+			else {
+				$('#logindiv').css("visibility", "visible");
+				$('#logoutdiv').css("visibility", "hidden");
+			}
+			
+			// $.ajax({
+			// 	"url": "/index/showContent",
+			// 	"type": "post",
+			// 	"datatype": "json",
+			// 	"success": function(results) {
+			// 		console.log(results.data);
+			// 		let output = results.data;
+			// 	}
+			// })
+		})
+		
+		function logout() {
+			localStorage.setItem("loginStatus", "n");
+			localStorage.setItem("userID", "");
+			localStorage.setItem("username", "");
+			location.reload()
+		}
+		
+		function mypage() {
+			if (loginStatus === 'y') {
+				location.href="/mypage"
+			}
+			else {
+				location.href="/signin"
+			}
+		}
+		
+		function forum(){
+			if (loginStatus === 'y') {
+				location.href="#"
+			}
+			else {
+				location.href="/signin"
+			}
+		}
+	
+	</script>
+	
+
+
+  </head>
+
+  <body data-smooth-scroll-offset="73">
+    <div class="loader">
+      <div class="loading-animation"></div>
+    </div>
+
+    <div class="navbar-container ">
+      <nav class="navbar navbar-expand-lg navbar-dark" data-overlay data-sticky="top" style="top: 0px;">
+        <div class="container">
+          <a class="navbar-brand fade-page" href="/">
+            <img src="assets/img/Tulip.png" alt="Tulip" style ="width:65px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+            <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <div class="py-2 py-lg-0">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a href="/curriculum" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">Curriculum</a>
+                </li>
+                <li class="nav-item dropdown">
+					<a onclick="mypage()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">My Page</a>
+                </li>
+                <li class="nav-item dropdown">
+					<a onclick="forum()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">Forum</a>
+                  <div class="dropdown-menu row">
+                    <div class="col-auto" data-dropdown-content>
+                      <div class="dropdown-grid-menu"><a href="/forumCertify" class="dropdown-item fade-page">학습인증</a><a href="/forumQnA" class="dropdown-item fade-page">질문 & 답변<span class="badge badge-primary ml-2">New</span></a><a href="/forumStudy" class="dropdown-item fade-page">스터디</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+			  </div><div id="logindiv"><a href="/signin" class="btn btn-white ml-lg-3">Log In</a></div><div id="logoutdiv"><a class="btn btn-white ml-lg-3" onclick="logout()">Log Out</a></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+	  
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			...
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+    <div data-overlay class="bg-primary text-light o-hidden position-relative">
+      <div class="position-absolute w-100 h-100 o-hidden top-0">
+        <div class="decoration right bottom scale-2">
+          <img class="bg-primary-2" src="assets/img/decorations/deco-blob-2.svg" alt="deco-blob-2 decoration" data-inject-svg />
+        </div>
+        <div class="decoration right bottom scale-3">
+          <img class="bg-white" src="assets/img/decorations/deco-dots-6.svg" alt="deco-dots-6 decoration" data-inject-svg />
+        </div>
+        <div class="decoration top left scale-2  d-none d-md-block">
+          <img class="bg-primary-3" src="assets/img/decorations/deco-blob-1.svg" alt="deco-blob-1 decoration" data-inject-svg />
+        </div>
+      </div>
+		
+      <section class="min-vh-70 o-hidden d-flex flex-column justify-content-center">
+        <div class="container">
+          <div class="row justify-content-center text-center align-items-center">
+            <div class="col-xl-8 col-lg-9 col-md-10 layer-3" data-aos="fade-up" data-aos-delay="500">
+              <p class="lead px-xl-5 text-muted" style = "font-weight: bold">
+            		문서, 영상, 실습, 퀴즈 다 갖춘 HTML 교육 사이트
+				</p>
+              <div class="mb-4">
+                <p class="lead px-xl-5 text-muted" style="padding-bottom:30px">
+					One HTML tutorial page with everything you need to learn
+                </p>
+              </div>
+				<img src="assets/img/Tulip.png" alt="Tulip" style ="width:300px;">
+			<div style = "padding-top: 30px; padding-bottom: 20px">
+            	<span class="display-4" data-countup data-start="0" data-end="<%=data%>" data-duration="3" data-grouping="true"></span>
+            	<span class="h6 text-muted">Total Sign Up Count</span>
+			</div>
+				<a href="/Curriculum" class="btn btn-lg btn-white mx-1" data-smooth-scroll style ="margin-bottom:30px;">시작하기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+		
+      <div class="divider flip-x">
+        <img src="assets/img/dividers/divider-2.svg" alt="graphical divider" data-inject-svg />
+      </div>
+    </div>
+	  
+	<section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <h2></h2>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="px-xl-2">
+              <div class="process-circle bg-primary mb-3 d-inline-flex">1</div>
+              <h2>로그인 하세요</h2>
+              <p>
+				<span class="h6">로그인으로<br>모든 서비스를 누리세요!</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="px-xl-2">
+              <div class="process-circle bg-primary-2 mb-3 d-inline-flex">2</div>
+              <h2>학습하세요</h2>
+              <p>
+				<span class="h6">커리큘럼에 따라<br>주어진 학습을 수행하세요!</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="px-xl-2">
+              <div class="process-circle bg-primary-3 mb-3 d-inline-flex">3</div>
+              <h2>나누세요</h2>
+              <p>
+				<span class="h6">게시판에서<br>당신의 지식을 나눠주세요!</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	  
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <h2>How to Use</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex flex-column align-items-center">
+            <ol class="process-vertical">
+              <li>
+                <div class="process-circle bg-primary"></div>
+                <div>
+                  <span class="text-small text-muted">영상과 함께 문서가 제공되니 교육에 참고해주세요.</span>
+                  <h5 class="mb-0">참고 문서 정독하기</h5>
+                </div>
+              </li>
+              <li>
+                <div class="process-circle bg-primary"></div>
+                <div>
+                  <span class="text-small text-muted">처음 HTML을 배우는 분이라면 영상을 꼭 시청해주세요.</span>
+                  <h5 class="mb-0">교육 영상 시청하기</h5>
+                </div>
+              </li>
+              <li>
+                <div class="process-circle bg-primary"></div>
+                <div>
+                  <span class="text-small text-muted">직접 코드를 쳐보지 않으면 실력이 오르지 않습니다.</span>
+                  <h5 class="mb-0">코드를 직접 쳐보며 실습하기</h5>
+                </div>
+              </li>
+              <li>
+                <div class="process-circle bg-primary"></div>
+                <div>
+                  <span class="text-small text-muted">학습한 것을 퀴즈로 복습하세요.</span>
+                  <h5 class="mb-0">문서와 영상을 바탕으로 한 퀴즈 풀기</h5>
+                </div>
+              </li>
+              <li>
+                <div class="process-circle bg-primary"></div>
+                <div>
+                  <span class="text-small text-muted">남에게 배운 것을 설명할 수 있을 때 그것은 온전히 자신의 것이 됩니다.</span>
+                  <h5 class="mb-0">게시판 이용하기</h5>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+	 <section>
+      <div class="container" data-aos="fade-up">
+        <div class="row align-items-center justify-content-around">
+          <div class="col-md-5 col-xl-6 mb-4 mb-md-0">
+            <img src="assets/img/group.jpeg" alt="Image" class="rounded shadow-3d">
+          </div>
+          <div class="col-md-7 col-xl-6">
+            <div class="row justify-content-center">
+              <div class="col-xl-8 col-lg-10">
+                <span class="badge badge-primary">Our Mission</span>
+                <div class="my-3">
+                  <span class="h1">4EverLand</span>
+                </div>
+                <p class="lead">4EverLand는 한동대학교 2022-1학기 웹서비스기획및실습 수업에서 6인이 만나 멋진 프로젝트를 진행하였다. <br> 전전, 도시, ICT융합 전공생이 각자 만들어낸 도전은 앞으로도 계속된다. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	  
+	<section class="p-0">
+      <div class="container py-6">
+        <div class="row mb-4" data-aos="fade-up">
+          <div class="col">
+            <h2>Tulip's Members</h2>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card card-lg card-body align-items-center">
+              <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/kwon.jpeg" alt="Kathleen Wong" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">권도현</h5>
+              <span>CEO</span>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card card-lg card-body align-items-center">
+              <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/kim.jpeg" alt="Anil Bhaktar" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">김예진</h5>
+              <span>CTO</span>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card card-lg card-body align-items-center">
+			  <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/park.jpeg" alt="Andrew Price" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">박지원</h5>
+              <span>Software Engineer</span>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card card-lg card-body align-items-center">
+			  <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/back.jpeg" alt="Marco Schneider" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">백세림</h5>
+              <span>Experience Designer</span>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card card-lg card-body align-items-center">
+			  <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/yang1.jpeg" alt="Helena Price" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">양지후</h5>
+              <span>Marketing</span>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+            <div class="card card-lg card-body align-items-center">
+			  <span class="badge badge-primary badge-top">Founder</span>
+              <img src="assets/img/yang2.jpeg" alt="Kenneth O'Dowd" class="avatar avatar-xlg mb-3">
+              <h5 class="mb-0">양서연</h5>
+              <span>Strategy</span>
+            </div>
+          </div>
+		  </div>
+		</div>
+	  </section>
+	  
+    <footer class="pb-4 bg-primary-3 text-light" id="footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col">
+            <div class="card card-body border-0 o-hidden mb-0 bg-primary text-light">
+              <div class="position-relative d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="h3 text-center mb-md-0">HTML 심화 단계를 배우고 싶은 분은 클릭하세요!</div>
+                <a href="#" class="btn btn-lg btn-white">
+      Next Step
+    </a>
+              </div>
+              <div class="decoration layer-0">
+                <img class="bg-primary-2" src="assets/img/decorations/deco-blob-1.svg" alt="deco-blob-1 decoration" data-inject-svg />
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-6 col-lg-3 col-xl-2">
+            <h5>Navigate</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a href="/signin" class="nav-link">Log In</a>
+              </li>
+              <li class="nav-item">
+                <a href="/Curriculum" class="nav-link">Curriculum</a>
+              </li>
+              <li class="nav-item">
+                <a href="/mypage" class="nav-link">My Page</a>
+              </li>
+              <li class="nav-item">
+                <a href="/forumQnA" class="nav-link">Forum</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg">
+            <h5>Contact</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/map/marker-1.svg" alt="marker-1 icon" data-inject-svg />
+                <div class="ml-3">
+                  <span>경상북도 포항시 한동로 558 한동대학교
+                    <br />에벤에셀관</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/communication/call-1.svg" alt="call-1 icon" data-inject-svg />
+                <div class="ml-3">
+                  <span>+82 6393 1009</span>
+                  <span class="d-block text-muted text-small">Mon - Fri 9am - 5pm</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex">
+                <img class="icon" src="assets/img/icons/theme/communication/mail.svg" alt="mail icon" data-inject-svg />
+                <div class="ml-3">
+                  <a href="https://mail.google.com/mail/">21700043@handong.ac.kr</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-xl-4 mt-3 mt-lg-0">
+            <h5>References</h5>
+            <p>해당 페이지 제작에 도움을 주신 <br> 한동대학교 이원섭 교수님의 교육자료입니다.</p>
+            <form action="/forms/mailchimp.php" data-form-email novalidate>
+              <div class="form-row">
+                <div class="col-12">
+                </div>
+                <div class="col-12">
+                  <div class="d-none alert alert-success" role="alert" data-success-message>
+                    Thanks, a member of our team will be in touch shortly.
+                  </div>
+                  <div class="d-none alert alert-danger" role="alert" data-error-message>
+                    Please fill all fields correctly.
+                  </div>
+                  <div data-recaptcha data-sitekey="INSERT_YOUR_RECAPTCHA_V2_SITEKEY_HERE" data-size="invisible" data-badge="bottomleft">
+                  </div>
+                  <button type="submit" class="btn">
+                    <span><a href="https://handonghci.notion.site/SIT32006-132ac3dc2ed24fbbbfe98a11813437bf" class="btn btn-lg btn-white">Next Step</a></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+            
+
+          </div>
+        </div>
+        <div class="row justify-content-center mb-2">
+          <div class="col-auto">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/instagram.svg" alt="instagram social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/youtube.svg" alt="youtube social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/medium.svg" alt="medium social icon" data-inject-svg />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img class="icon " src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col col-md-auto text-center">
+            <small class="text-muted">&copy;2022 This page is protected by reCAPTCHA and is subject to the Google <a href="https://www.google.com/policies/privacy/">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service.</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Required vendor scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+
+    <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
+    <script type="text/javascript" src="assets/js/aos.js"></script>
+    <!-- Clipboard (copies content from browser into OS clipboard) -->
+    <script type="text/javascript" src="assets/js/clipboard.min.js"></script>
+    <!-- Fancybox (handles image and video lightbox and galleries) -->
+    <script type="text/javascript" src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- Flatpickr (calendar/date/time picker UI) -->
+    <script type="text/javascript" src="assets/js/flatpickr.min.js"></script>
+    <!-- Flickity (handles touch enabled carousels and sliders) -->
+    <script type="text/javascript" src="assets/js/flickity.pkgd.min.js"></script>
+    <!-- Ion rangeSlider (flexible and pretty range slider elements) -->
+    <script type="text/javascript" src="assets/js/ion.rangeSlider.min.js"></script>
+    <!-- Isotope (masonry layouts and filtering) -->
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- jarallax (parallax effect and video backgrounds) -->
+    <script type="text/javascript" src="assets/js/jarallax.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-video.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-element.min.js"></script>
+    <!-- jQuery Countdown (displays countdown text to a specified date) -->
+    <script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+    <!-- jQuery smartWizard facilitates steppable wizard content -->
+    <script type="text/javascript" src="assets/js/jquery.smartWizard.min.js"></script>
+    <!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
+    <script type="text/javascript" src="assets/js/plyr.polyfilled.min.js"></script>
+    <!-- Prism (displays formatted code boxes) -->
+    <script type="text/javascript" src="assets/js/prism.js"></script>
+    <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
+    <script type="text/javascript" src="assets/js/scrollMonitor.js"></script>
+    <!-- Smooth scroll (animation to links in-page)-->
+    <script type="text/javascript" src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
+    <script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+    <!-- TwitterFetcher (displays a feed of tweets from a specified account)-->
+    <script type="text/javascript" src="assets/js/twitterFetcher_min.js"></script>
+    <!-- Typed text (animated typing effect)-->
+    <script type="text/javascript" src="assets/js/typed.min.js"></script>
+    <!-- Required theme scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/theme.js"></script>
+    <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    </script>
+  </body>
+
+</html>
