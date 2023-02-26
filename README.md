@@ -1,3 +1,5 @@
+Notion: https://factual-cabbage-46e.notion.site/Tulip-b8f26a39408844f49ba97209d3fd9c29 
+
 ```
 ┌───────────────────────────────────────────────┐
                                        _       
